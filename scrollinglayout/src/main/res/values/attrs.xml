@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <declare-styleable name="ScrollingLayout_Layout">
+        <!-- 对齐 -->
+        <attr name="layout_gravity" format="enum">
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+            <enum name="center" value="3" />
+        </attr>
+        <!-- 吸顶模式 -->
+        <attr name="layout_sticky" format="enum">
+            <enum name="none" value="0" />
+            <enum name="sticky" value="1" />
+            <enum name="permanent" value="2" />
+        </attr>
+        <!-- 是否允许消费滚动距离，默认为 true -->
+        <attr name="layout_allowScrolling" format="boolean" />
+        <!-- 是否允许拦截触摸事件，默认为 true -->
+        <attr name="layout_allowIntercept" format="boolean" />
+        <!-- 是否允许接受嵌套滚动，默认为 true -->
+        <attr name="layout_allowNestedScrolling" format="boolean" />
+        <!-- 指定消费滚动距离的ScrollingView的视图 -->
+        <attr name="layout_scrollingViewId" format="reference">
+            <!-- 先找子视图，然后判断自己 -->
+            <enum name="auto" value="0" />
+            <!-- 仅判断自己 -->
+            <enum name="self" value="-1" />
+        </attr>
+        <attr name="layout_scrollingViewResolver" format="string" />
+    </declare-styleable>
+</resources>

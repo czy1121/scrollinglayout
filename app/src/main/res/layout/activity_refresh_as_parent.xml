@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.reezy.cosmo.pullrefresh.PullRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.demo.app.StickyActivity">
+
+
+    <me.reezy.cosmo.scrollinglayout.ScrollingLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/holo_blue_bright">
+
+        <me.reezy.cosmo.bannerview.BannerView
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@android:color/holo_blue_dark"
+            android:gravity="center"
+            android:text="sticky"
+            app:layout_sticky="sticky"
+            android:textColor="@color/white" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@android:color/holo_green_dark"
+            android:gravity="center"
+            android:text="scroll"
+            android:textColor="@color/white" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+
+    </me.reezy.cosmo.scrollinglayout.ScrollingLayout>
+</me.reezy.cosmo.pullrefresh.PullRefreshLayout>

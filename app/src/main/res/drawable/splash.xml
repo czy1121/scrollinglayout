@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item android:drawable="@android:color/white" />
+
+    <item android:gravity="center" android:drawable="@mipmap/splash_bg" />
+
+    <item
+        android:drawable="@mipmap/splash_logo"
+        android:gravity="bottom|center_horizontal"
+        android:bottom="60dp" />
+
+</layer-list>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.reezy.cosmo.scrollinglayout.ScrollingLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@android:color/black"
+        android:gravity="center"
+        android:text="PullRefreshLayout"
+        android:textColor="@color/white" />
+
+    <me.reezy.cosmo.pullrefresh.PullRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+    </me.reezy.cosmo.pullrefresh.PullRefreshLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@android:color/black"
+        android:gravity="center"
+        android:text="scroll"
+        android:textColor="@color/white" />
+</me.reezy.cosmo.scrollinglayout.ScrollingLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.reezy.cosmo.scrollinglayout.ScrollingLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingVertical="0dp"
+    android:paddingStart="100dp"
+    android:paddingEnd="0dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@android:color/holo_red_dark"
+        android:gravity="center"
+        android:text="scroll"
+        android:textColor="@color/white" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <include layout="@layout/layout_scrolling" />
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@android:color/holo_green_light"
+        android:gravity="center"
+        android:text="scroll"
+        android:textColor="@color/white" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_orange_light"
+            android:gravity="center"
+            android:text="scroll"
+            android:textColor="@color/white" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@android:color/holo_green_light"
+        android:gravity="center"
+        android:text="scroll"
+        android:textColor="@color/white" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <include layout="@layout/layout_scrolling" />
+    </androidx.core.widget.NestedScrollView>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@android:color/holo_red_dark"
+        android:gravity="center"
+        android:text="scroll"
+        android:textColor="@color/white" />
+
+</me.reezy.cosmo.scrollinglayout.ScrollingLayout>

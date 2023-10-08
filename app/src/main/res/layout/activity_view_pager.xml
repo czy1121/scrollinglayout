@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.reezy.cosmo.scrollinglayout.ScrollingLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <me.reezy.cosmo.bannerview.BannerView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#eee"
+        android:paddingTop="5dp"
+        app:layout_sticky="sticky"
+        app:tabBackground="@null"
+        app:tabContentStart="0dp"
+        app:tabGravity="start"
+        app:tabIndicator="@drawable/tab_indicator"
+        app:tabIndicatorAnimationMode="linear"
+        app:tabIndicatorColor="#000"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorGravity="bottom"
+        app:tabIndicatorHeight="2dp"
+        app:tabMinWidth="40dp"
+        app:tabMode="scrollable"
+        app:tabRippleColor="@null"
+        app:tabSelectedTextColor="#000"
+        app:tabTextColor="#aaa" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</me.reezy.cosmo.scrollinglayout.ScrollingLayout>

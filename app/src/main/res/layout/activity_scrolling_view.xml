@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2">
+
+        <CheckBox
+            android:id="@+id/match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_columnWeight="1"
+            android:text="match_parent" />
+
+        <CheckBox
+            android:id="@+id/allow_nested_scrolling"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_columnWeight="1"
+            android:text="allowNestedScrolling" />
+
+        <CheckBox
+            android:id="@+id/allow_intercept"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_columnWeight="1"
+            android:text="allowIntercept" />
+
+        <CheckBox
+            android:id="@+id/allow_scrolling"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:layout_columnWeight="1"
+            android:text="allowScrolling" />
+    </GridLayout>
+
+
+    <me.reezy.cosmo.scrollinglayout.ScrollingLayout
+        android:id="@+id/scrolling"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@android:color/black"
+            android:gravity="center"
+            android:text="scroll"
+            android:textColor="@color/white" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@android:color/black"
+            android:gravity="center"
+            android:text="scroll"
+            android:textColor="@color/white"  />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@android:color/holo_orange_light"
+            android:gravity="center"
+            android:text="scroll"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@android:color/holo_green_dark"
+            android:gravity="center"
+            android:text="scroll"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@android:color/holo_purple"
+            android:gravity="center"
+            android:text="scroll"
+            android:textColor="@color/white" />
+    </me.reezy.cosmo.scrollinglayout.ScrollingLayout>
+
+</LinearLayout>
