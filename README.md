@@ -10,7 +10,7 @@
 - 子视图为 ViewPager2 时，自动从当前页中获取 ScrollingView
 
   
-![](demo.mp4)
+[demo.mp4](demo.mp4)
 
 
 ## Gradle
