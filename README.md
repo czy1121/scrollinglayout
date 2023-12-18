@@ -9,8 +9,9 @@
 - 子视图为 RecyclerView 时，不会导致其缓存机制失效
 - 子视图为 ViewPager2 时，自动从当前页中获取 ScrollingView
 
-  
-[demo.mp4](demo.mp4)
+
+https://github.com/czy1121/scrollinglayout/assets/1754323/2aeadace-b153-4c1f-9ec6-85909ccee101
+ 
 
 
 ## Gradle
