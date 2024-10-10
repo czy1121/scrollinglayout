@@ -13,11 +13,12 @@ class ScrollingViewActivity : AppCompatActivity() {
 
     val binding by lazy { ActivityScrollingViewBinding.bind(findViewById<ViewGroup>(android.R.id.content).getChildAt(0)) }
 
+    private val adapter = VerticalAdapter(1)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scrolling_view)
 
-        binding.rv.adapter = VerticalAdapter(20)
+        binding.rv.adapter = adapter
 
         val lp = (binding.rv.layoutParams as ScrollingLayout.LayoutParams)
 
@@ -38,6 +39,10 @@ class ScrollingViewActivity : AppCompatActivity() {
         }
         binding.matchParent.setOnCheckedChangeListener { buttonView, isChecked ->
             update()
+        }
+
+        binding.btnAdd.setOnClickListener {
+            adapter.add(3)
         }
 
     }

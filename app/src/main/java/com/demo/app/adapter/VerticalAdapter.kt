@@ -8,11 +8,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class VerticalAdapter(private val itemCount: Int = 61): RecyclerView.Adapter<VerticalAdapter.ViewHolder>() {
+class VerticalAdapter(count: Int = 60): RecyclerView.Adapter<VerticalAdapter.ViewHolder>() {
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view)
 
+    private var itemCount: Int = count
 
+    fun add(value: Int) {
+        itemCount += value
+        notifyDataSetChanged()
+    }
 
     override fun getItemCount(): Int = itemCount
 
@@ -26,7 +31,7 @@ class VerticalAdapter(private val itemCount: Int = 61): RecyclerView.Adapter<Ver
     private val sizes = arrayOf(50, 100, 150)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-//        Log.e("OoO", "create => ${count++}")
+        Log.e("OoO", "create => ${count++}")
         return ViewHolder(TextView(parent.context).apply {
             val h = (sizes[viewType] * resources.displayMetrics.density).toInt()
             layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, h)

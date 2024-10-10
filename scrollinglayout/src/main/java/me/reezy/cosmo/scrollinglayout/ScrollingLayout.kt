@@ -300,9 +300,12 @@ class ScrollingLayout @JvmOverloads constructor(context: Context, attrs: Attribu
         }
     }
 
+    private var isScrolling: Boolean = false
+
     private fun scrollBy(delta: Int): Int {
 
         var unconsumed = delta
+        isScrolling = true
         if (unconsumed > 0) {
             for ((child, scrollingView) in scrollingViews) {
                 val offsetBottom = mMaxScrollY - scrollY
@@ -348,6 +351,8 @@ class ScrollingLayout @JvmOverloads constructor(context: Context, attrs: Attribu
             scrollTo(newY)
             unconsumed -= newY - oldY
         }
+
+        isScrolling = false
 
         return delta - unconsumed
     }
@@ -404,8 +409,12 @@ class ScrollingLayout @JvmOverloads constructor(context: Context, attrs: Attribu
 
             val childWidthSpec = getChildMeasureSpec(widthMeasureSpec, hPadding + lp.leftMargin + lp.rightMargin, lp.width)
             val childHeightSpec = when {
-                child is ViewPager2 && lp.height == ViewGroup.LayoutParams.MATCH_PARENT -> getChildMeasureSpec(heightMeasureSpec, vPadding + stickHeight, lp.height)
-                child is ScrollingView || lp.height != ViewGroup.LayoutParams.WRAP_CONTENT -> getChildMeasureSpec(heightMeasureSpec, vPadding, lp.height)
+                child is ViewPager2 && lp.height == ViewGroup.LayoutParams.MATCH_PARENT -> {
+                    getChildMeasureSpec(heightMeasureSpec, vPadding + stickHeight, lp.height)
+                }
+                child is ScrollingView || lp.height != ViewGroup.LayoutParams.WRAP_CONTENT -> {
+                    getChildMeasureSpec(heightMeasureSpec, vPadding, lp.height)
+                }
                 else -> getChildMeasureSpec(0, vPadding, lp.height)
             }
             child.measure(childWidthSpec, childHeightSpec)
@@ -424,7 +433,7 @@ class ScrollingLayout @JvmOverloads constructor(context: Context, attrs: Attribu
 
             childState = combineMeasuredStates(childState, child.measuredState)
 
-            mChildrenHeight += child.measuredHeight
+            mChildrenHeight += child.measuredHeight + if (lp.sticky > 0) 0 else (lp.topMargin + lp.bottomMargin)
 
             maxWidth = max(maxWidth, child.measuredWidth + lp.leftMargin + lp.rightMargin)
         }
@@ -464,6 +473,7 @@ class ScrollingLayout @JvmOverloads constructor(context: Context, attrs: Attribu
             val childHeight = child.measuredHeight
             val lp = child.layoutParams as LayoutParams
 
+            childTop += if (lp.sticky == StickyMode.NONE) lp.topMargin else 0
 
             val childLeft = when (lp.gravity) {
                 Gravity.CENTER -> (left + (childSpace - childWidth) / 2 + lp.leftMargin) - lp.rightMargin
@@ -487,7 +497,7 @@ class ScrollingLayout @JvmOverloads constructor(context: Context, attrs: Attribu
                 }
             }
 
-            childTop += childHeight
+            childTop += childHeight + if (lp.sticky == StickyMode.NONE) lp.bottomMargin else 0
         }
 
 
@@ -585,7 +595,7 @@ class ScrollingLayout @JvmOverloads constructor(context: Context, attrs: Attribu
     //<editor-fold desc="嵌套滚动 - NestedScrollingParent2">
 
     override fun onStartNestedScroll(child: View, target: View, axes: Int, type: Int): Boolean {
-        return (axes and ViewCompat.SCROLL_AXIS_VERTICAL) != 0 && (child.layoutParams as LayoutParams).allowNestedScrolling
+        return (axes and ViewCompat.SCROLL_AXIS_VERTICAL) != 0 && (child.layoutParams as LayoutParams).allowNestedScrolling && !isScrolling
     }
 
     override fun onNestedScrollAccepted(child: View, target: View, axes: Int, type: Int) {
