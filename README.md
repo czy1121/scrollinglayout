@@ -21,7 +21,7 @@ repositories {
     maven { url "https://gitee.com/ezy/repo/raw/cosmo/"}
 }
 dependencies {
-    implementation "me.reezy.cosmo:scrollinglayout:0.8.0"
+    implementation "me.reezy.cosmo:scrollinglayout:0.10.0"
 }
 ```
 
